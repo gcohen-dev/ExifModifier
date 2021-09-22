@@ -26,10 +26,10 @@ public extension UIImage {
         }
 
         // create a new data object and write the new image into it
-        let dest_data = Data()
+        let dest_data = CFDataCreateMutable(nil, 0)
         var destination: CGImageDestination? = nil
         if let UTI = UTI {
-            destination = CGImageDestinationCreateWithData(dest_data as! CFMutableData, UTI, 1, nil)
+            destination = CGImageDestinationCreateWithData(dest_data!, UTI, 1, nil)
         }
 
         if destination == nil {
@@ -48,9 +48,11 @@ public extension UIImage {
         if !success {
             print("Error: Could not create data from image destination")
         }
-
-
-        return dest_data
+        guard let dest_data = dest_data else {
+            return nil
+        }
+        
+        return dest_data as Data
     }
 
 }

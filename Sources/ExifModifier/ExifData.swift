@@ -13,6 +13,8 @@ public class ExifData {
     
     var imageMetaData = [String: Any]()
     
+    public init() { }
+    
     public func exifData() -> [String: Any] { imageMetaData }
     
     public func addDescripton(_ description: String) { tiffDictionary[kCGImagePropertyTIFFImageDescription as String] = description }

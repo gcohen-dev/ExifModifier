@@ -48,11 +48,10 @@ public extension UIImage {
         if !success {
             print("Error: Could not create data from image destination")
         }
-        guard let dest_data = dest_data else {
-            return nil
+        if let validDestData = dest_data {
+            return validDestData as Data
         }
-        
-        return dest_data as Data
+        return nil
     }
 
 }

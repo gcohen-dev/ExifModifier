@@ -120,7 +120,7 @@ fileprivate extension ExifData {
     
     static let getUTCDateFormatter: DateFormatter? = {
         var dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy:MM:dd HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return dateFormatter
     }()
     

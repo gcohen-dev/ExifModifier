@@ -38,7 +38,7 @@ public extension UIImage {
 
         // add the image contained in the image source to the destination, overidding the old metadata with our modified metadata
         if let destination = destination, let source = source {
-            CGImageDestinationAddImageFromSource(destination, source, 0, container.exifData as! CFDictionary?)
+            CGImageDestinationAddImageFromSource(destination, source, 0, container.exifData() as CFDictionary)
         }
         var success = false
         if let destination = destination {

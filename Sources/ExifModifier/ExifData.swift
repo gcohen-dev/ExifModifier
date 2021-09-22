@@ -24,6 +24,7 @@ public class ExifData {
     public func addCreationDate(_ date: Date?) {
         guard let dateStr = getUTCFormattedDate(date) else { return }
         exifDictionary[kCGImagePropertyExifDateTimeOriginal as String] = dateStr
+        exifDictionary[kCGImagePropertyExifDateTimeDigitized as String] = dateStr
     }
     
     public func addUserComment(_ comment: String){ exifDictionary[kCGImagePropertyExifUserComment as String] = comment }
